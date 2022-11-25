@@ -1,10 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
+    <color name="gray">#9CA6B2</color>
+    <color name="black">#000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="blue_dark">#03073D</color>
+    <color name="color_page">@color/d_white_100</color>
+    <color name="gray_darker">#EBEDF8</color>
+    <color name="background">#EFEFEF</color>
+    <color name="color_dialog">#FFFFFFFF</color>
+    <color name="white_smoke">#EFEFEF</color>
+    <color name="colorPrimary">#FF6200EE</color>
+    <color name="item_color">#EBEDF8</color>
+    <color name="card_color">#FFFFFFFF</color>
+    <color name="icon_grey_color">#9CA6B2</color>
+    <color name="blue_dark_bg">#03073D</color>
+    <color name="dark_grey">#9A9A9A</color>
+    <color name="grey_blue">#F8F9FB</color>
+
+    <!-- New Style Color Palette -->
+    <!-- Dynamic Colors -->
+    <color name="d_black_100">#313131</color>
+    <color name="d_black_50">#80313131</color>
+    <color name="d_gray_100">#899499</color>
+    <color name="d_gray_20">#33899499</color>
+    <color name="d_bg_100">#F2F3F5</color>
+    <color name="d_bg_50">#80F2F3F5</color>
+    <color name="d_white_100">#FFFFFF</color>
+    <color name="d_white_50">#80FFFFFF</color>
+
+    <!-- Static Colors -->
+    <color name="s_black_100">#313131</color>
+    <color name="s_black_20">#33313131</color>
+    <color name="s_white_100">#FFFFFF</color>
+    <color name="s_white_80">#CCFFFFFF</color>
+    <color name="s_white_50">#80FFFFFF</color>
+    <color name="s_white_20">#33FFFFFF</color>
+    <color name="s_blue_100">#0D6992</color>
+    <color name="s_blue_20">#330090DB</color>
+    <color name="s_green_100">#289842</color>
+    <color name="s_green_20">#330BBE53</color>
+    <color name="s_red_100">#FF6D6D</color>
+    <color name="s_red_20">#33FF6D6D</color>
+    <color name="s_blue_black_100">#262A2F</color>
+    <color name="shadow_bg">#E5262A2F</color>
+    <color name="s_yellow_100">#FF9B26</color>
+    <color name="s_yellow_20">#33FFD6A6</color>
+
 </resources>

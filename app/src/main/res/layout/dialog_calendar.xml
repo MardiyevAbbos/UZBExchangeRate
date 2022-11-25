@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_page"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/margin_padding_24">
+
+    <android.widget.CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margin_padding_12"
+        android:datePickerMode="calendar"
+        android:theme="@style/MyCalendarTheme"
+        android:weekDayTextAppearance="@style/MyWeekDayTextAppearance" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/continueBtn"
+        style="@style/Button_Green"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_padding_24"
+        android:layout_marginTop="@dimen/margin_padding_12"
+        android:layout_marginBottom="@dimen/margin_padding_24"
+        android:text="@string/select" />
+
+</LinearLayout>

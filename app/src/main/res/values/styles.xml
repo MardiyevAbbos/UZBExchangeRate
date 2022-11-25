@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Button_Green">
+        <item name="android:textColor">@color/button_text_color_selector</item>
+        <item name="backgroundTint">@color/button_green_selector</item>
+    </style>
+
+    <style name="MyWeekDayTextAppearance" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textColor">@color/s_green_100</item>
+    </style>
+
+    <style name="M16">
+        <item name="android:fontFamily">@font/gilroy_medium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">18sp</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+    </style>
+
+</resources>
