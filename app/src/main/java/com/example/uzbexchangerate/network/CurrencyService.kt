@@ -15,10 +15,10 @@ interface CurrencyService {
         @Path("date") date: String
     ) : Response<List<ExchangeRate>>
 
-    @GET("/all/{ccy}/{date}/")
+    @GET("{ccy}/{date}/")
     suspend fun getSelectDateCurrency(
         @Path("ccy") ccy: String,
         @Path("date") date: String
-    ) : Response<ExchangeRate>
+    ) : Response<List<ExchangeRate>>
 
 }

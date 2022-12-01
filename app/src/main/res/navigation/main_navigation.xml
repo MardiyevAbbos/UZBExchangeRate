@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_exchangeFragment"
+            app:destination="@id/exchangeFragment" />
     </fragment>
     <fragment
         android:id="@+id/historyFragment"
@@ -28,5 +31,14 @@
         android:id="@+id/searchFragment"
         android:name="com.example.uzbexchangerate.fragments.search.SearchFragment"
         android:label=""
-        tools:layout="@layout/fragment_search"/>
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_searchFragment_to_exchangeFragment"
+            app:destination="@id/exchangeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exchangeFragment"
+        android:name="com.example.uzbexchangerate.fragments.exchange.ExchangeFragment"
+        android:label=""
+        tools:layout="@layout/fragment_exchange"/>
 </navigation>

@@ -9,4 +9,6 @@ class HistoryRepository @Inject constructor(
 
     suspend fun getAllCurrencyLocal() = currencyDao.getAllCurrency()
 
+    suspend fun deleteCurrencyByIdLocal(ccy: String) = currencyDao.deleteCurrencyById(ccy)
+
 }

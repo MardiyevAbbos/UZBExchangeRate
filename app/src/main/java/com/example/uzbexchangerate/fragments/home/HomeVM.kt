@@ -17,7 +17,7 @@ class HomeVM @Inject constructor(
     private val mainRepository: MainRepository
 ) : ViewModel(){
 
-    private val _uiState = MutableStateFlow(HomeUiState())
+    private val _uiState = MutableStateFlow(HomeUiEvent())
     val uiState = _uiState.asStateFlow()
 
     fun onEvent(event: HomeVMEvent){

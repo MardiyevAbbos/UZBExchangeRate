@@ -6,4 +6,7 @@ object Constants {
 
     const val BASE_URL = "https://cbu.uz/uz/arkhiv-kursov-valyut/json/"
 
+    const val ALL_CURRENCY_AND_STATE_LIST = "ALL_CURRENCY_AND_STATE_LIST"
+    const val CURRENCY = "CURRENCY"
+
 }

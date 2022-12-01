@@ -10,7 +10,9 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/d_white_100">
+        android:background="@color/d_white_100"
+        android:fitsSystemWindows="true"
+        app:elevation="0dp">
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
@@ -35,41 +37,8 @@
                     android:textSize="@dimen/text_size_20"
                     android:textStyle="bold" />
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical">
-
-                    <LinearLayout
-                        android:id="@+id/ll_calendar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:id="@+id/tv_date"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="24.11.2022"
-                            android:textColor="@color/s_blue_100"
-                            android:textSize="@dimen/text_size_16"
-                            android:textStyle="bold" />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_calendar"
-                            android:layout_marginStart="@dimen/margin_padding_4"
-                            app:iconTint="@color/s_blue_100"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
                 <ImageView
-                    android:id="@+id/iv_notification"
+                    android:id="@+id/iv_search"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical|end"

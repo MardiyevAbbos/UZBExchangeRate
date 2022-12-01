@@ -1,16 +1,25 @@
 package com.example.uzbexchangerate.fragments.home
 
+import android.util.Log
+import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.example.uzbexchangerate.R
 import com.example.uzbexchangerate.adapter.CurrenciesAdapter
 import com.example.uzbexchangerate.databinding.FragmentHomeBinding
-import com.example.uzbexchangerate.dialogs.DialogCalendar
 import com.example.uzbexchangerate.dialogs.LoaderDialog
 import com.example.uzbexchangerate.fragments.BaseFragment
+import com.example.uzbexchangerate.models.CurrencyAndState
+import com.example.uzbexchangerate.models.ExchangeRate
+import com.example.uzbexchangerate.utils.Constants
 import com.example.uzbexchangerate.utils.extensions.collectLA
+import com.example.uzbexchangerate.utils.extensions.navigateSafe
 import com.example.uzbexchangerate.utils.extensions.snackBar
+import com.example.uzbexchangerate.utils.getListCurrencyAndState
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
@@ -18,6 +27,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     private val homeVM: HomeVM by activityViewModels()
     private val currencyAdapter by lazy { CurrenciesAdapter() }
     private val loader by lazy { LoaderDialog(requireContext()) }
+    private var allCurrencies: ArrayList<ExchangeRate> = ArrayList()
+    private var allCurrencyAndState: ArrayList<CurrencyAndState> = ArrayList()
 
     override fun onViewCreate() {
         homeVM.onEvent(HomeVMEvent.DoHold)
@@ -29,26 +40,19 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     private fun initViews() {
         val calendar: Calendar = Calendar.getInstance()
         val currentDate = SimpleDateFormat("yyyy-MM-dd").format(calendar.time.time)
-        binding.tvDate.text = currentDate
-
-        binding.llCalendar.setOnClickListener {
-            val dialog = DialogCalendar(requireContext())
-
-            dialog.setCanceledOnTouchOutside(true)
-            dialog.show()
-            dialog.setCancelable(true)
-            dialog.setButtonClickListener {
-                if (it != binding.tvDate.text) {
-                    homeVM.onEvent(HomeVMEvent.DoDateHold(it))
-                }
-                binding.tvDate.text = it
-                dialog.dismiss()
+        binding.apply {
+            rvCurrencies.adapter = currencyAdapter
+            swipeRefresh.setOnRefreshListener {
+                swipeRefresh.isRefreshing = false
+                homeVM.onEvent(HomeVMEvent.DoDateHold(currentDate.toString()))
             }
-        }
-        binding.rvCurrencies.adapter = currencyAdapter
-        binding.swipeRefresh.setOnRefreshListener {
-            binding.swipeRefresh.isRefreshing = false
-            homeVM.onEvent(HomeVMEvent.DoDateHold(binding.tvDate.text.toString()))
+            ivSearch.setOnClickListener {
+                val bundle = bundleOf(Constants.ALL_CURRENCY_AND_STATE_LIST to allCurrencyAndState)
+                navController.navigateSafe(
+                    R.id.action_homeFragment_to_searchFragment,
+                    bundle
+                )
+            }
         }
         currencyAdapter.setStarIconClickListener { currency, saveState ->
             if (saveState) {
@@ -59,13 +63,22 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                 homeVM.onEvent(HomeVMEvent.GetLocalData)
             }
         }
+        currencyAdapter.setExchangeIconClickListener { currency ->
+            val bundle2 = bundleOf(Constants.CURRENCY to currency)
+            navController.navigateSafe(
+                R.id.action_homeFragment_to_exchangeFragment,
+                bundle2
+            )
+        }
     }
 
     private fun collectUiState() {
         binding.apply {
             homeVM.uiState.collectLA(viewLifecycleOwner) { state ->
                 if (state.response != null) {
-                    currencyAdapter.setData(state.response)
+                    allCurrencies.clear()
+                    allCurrencies.addAll(state.response)
+                    currencyAdapter.setData(getListCurrencyAndState(state.response, emptyList()))
                 }
 
                 if (state.errorBody != null) {
@@ -73,7 +86,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                 }
 
                 if (state.localData.isNotEmpty()){
-                    currencyAdapter.setLocalData(state.localData)
+                    allCurrencyAndState.clear()
+                    allCurrencyAndState.addAll(getListCurrencyAndState(allCurrencies, state.localData))
+                    currencyAdapter.setData(getListCurrencyAndState(allCurrencies, state.localData))
                 }
 
                 if (state.isLoading) {

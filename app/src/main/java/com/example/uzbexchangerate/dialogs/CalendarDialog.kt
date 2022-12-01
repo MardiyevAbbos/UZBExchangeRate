@@ -10,7 +10,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import java.text.SimpleDateFormat
 import java.util.*
 
-class DialogCalendar(context: Context) : BottomSheetDialog(context) {
+class CalendarDialog(context: Context) : BottomSheetDialog(context) {
     private var buttonClickListener: ((String) -> Unit)? = null
 
     fun setButtonClickListener(f: (date: String) -> Unit) {

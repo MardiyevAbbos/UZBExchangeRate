@@ -18,7 +18,6 @@ class MainRepository @Inject constructor(
     suspend fun getAllCurrency(): NetworkResource<List<ExchangeRate>> {
         return try {
             val response = currencyService.getAllCurrency()
-            Log.d("@@@TAG", "getAllCurrency: $response")
             if (response.isSuccessful){
                 NetworkResource.Success(response.body())
             }else {

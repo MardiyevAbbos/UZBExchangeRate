@@ -1,15 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
+    android:background="@color/d_white_100"
+    android:orientation="vertical"
+    tools:context=".fragments.search.SearchFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:text="SearchPage"/>
+        android:layout_marginHorizontal="@dimen/margin_padding_16"
+        android:layout_marginTop="@dimen/margin_padding_16"
+        android:background="@drawable/item_background"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:paddingHorizontal="@dimen/margin_padding_8"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_search"
+            app:tint="@color/d_gray_100" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/searchText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="@string/str_search"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingVertical="@dimen/margin_padding_12"
+            android:paddingLeft="@dimen/margin_padding_8"
+            android:queryBackground="@android:color/transparent"
+            android:searchIcon="@null"
+            android:textAppearance="@style/M16"
+            android:textColor="@color/d_gray_100"
+            app:iconifiedByDefault="false" />
+
+        <ImageView
+            android:id="@+id/clear_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:layout_gravity="center_vertical"
+            android:paddingHorizontal="@dimen/margin_padding_8"
+            android:src="@drawable/ic_circle_x" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_listRecipients"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="@dimen/margin_padding_16"
+        android:background="@color/d_white_100"
+        android:paddingBottom="@dimen/margin_padding_10"
+        android:paddingTop="@dimen/margin_padding_10"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        android:overScrollMode="never"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:itemCount="5"
+        tools:listitem="@layout/item_currency_view" />
 
 </LinearLayout>
+
