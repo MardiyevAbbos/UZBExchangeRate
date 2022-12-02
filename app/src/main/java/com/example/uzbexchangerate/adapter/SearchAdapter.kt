@@ -50,7 +50,7 @@ class SearchAdapter : ListAdapter<CurrencyAndState, SearchAdapter.VH>(ITEM_DIFF)
                 binding.tvDiffAmountGreen.invisible()
             }
 
-            binding.ivExchange.setOnClickListener { itemClick?.invoke(item.currency) }
+            binding.root.setOnClickListener { itemClick?.invoke(item.currency) }
         }
     }
 

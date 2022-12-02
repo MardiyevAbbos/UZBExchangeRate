@@ -11,7 +11,6 @@
     <string name="check_your_connection">Couldn\'t reach server. Check your internet connection.</string>
     <string name="something_is_wrong"> Something went wrong. Please try again later!</string>
     <string name="select">Select</string>
-    <string name="str_enter_amount">Enter amount</string>
     <string name="str_uzbek_soum">Uzbek soum</string>
     <string name="str_yes">Yes</string>
     <string name="str_no">No</string>
@@ -19,5 +18,14 @@
     <string name="str_one_amount">1</string>
     <string name="str_equality"> = </string>
     <string name="str_search">Search</string>
+    <string name="str_zero">0</string>
+    <string name="str_max_lines_24">Max lines: 24!</string>
+    <string name="str_light_mode">Light mode</string>
+    <string name="str_dark_mode">Dark mode</string>
+    <string name="str_system_theme">System theme</string>
+    <string name="str_appLanguage">App language</string>
+    <string name="str_app_language">English</string>
+    <string name="str_share">Share</string>
+    <string name="str_about_program">About the program</string>
 
 </resources>

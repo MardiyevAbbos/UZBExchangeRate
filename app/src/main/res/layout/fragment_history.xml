@@ -10,7 +10,9 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/d_white_100">
+        android:background="@color/d_white_100"
+        android:fitsSystemWindows="true"
+        app:elevation="0dp">
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
@@ -31,9 +33,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/str_history"
+                    android:textAppearance="@style/mediumStyle"
                     android:textColor="@color/d_black_100"
-                    android:textSize="@dimen/text_size_20"
-                    android:textStyle="bold" />
+                    android:textSize="@dimen/text_size_18"
+                    android:layout_marginStart="@dimen/margin_padding_4"/>
 
             </LinearLayout>
 

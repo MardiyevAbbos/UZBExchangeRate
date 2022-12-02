@@ -51,4 +51,6 @@ class MainRepository @Inject constructor(
 
     suspend fun deleteCurrencyByIdLocal(ccy: String) = currencyDao.deleteCurrencyById(ccy)
 
+    suspend fun updateCurrencyLocal(currency: ExchangeRate) = currencyDao.updateCurrency(currency)
+
 }

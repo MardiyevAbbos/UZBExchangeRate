@@ -8,4 +8,5 @@ sealed class HomeVMEvent{
     object GetLocalData : HomeVMEvent()
     data class SaveCurrencyToLocal(val currency: ExchangeRate) : HomeVMEvent()
     data class DeleteCurrencyToLocal(val ccy: String) : HomeVMEvent()
+    data class UpdateCurrencyToLocal(val currency: ExchangeRate) : HomeVMEvent()
 }

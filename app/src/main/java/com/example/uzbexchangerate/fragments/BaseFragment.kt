@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
+import com.example.uzbexchangerate.utils.SharedPreferencesHelper
 
 typealias Inflate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
 
@@ -19,6 +20,7 @@ abstract class BaseFragment<VB : ViewBinding>(
     val binding get() = _binding!!
 
     lateinit var navController: NavController
+    val shared by lazy { SharedPreferencesHelper(context = requireActivity()) }
 
     override fun onCreateView(
         inflater: LayoutInflater,

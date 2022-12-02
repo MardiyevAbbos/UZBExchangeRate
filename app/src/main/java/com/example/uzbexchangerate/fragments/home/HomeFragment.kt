@@ -29,6 +29,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     private val loader by lazy { LoaderDialog(requireContext()) }
     private var allCurrencies: ArrayList<ExchangeRate> = ArrayList()
     private var allCurrencyAndState: ArrayList<CurrencyAndState> = ArrayList()
+    private var currentDate = ""
 
     override fun onViewCreate() {
         homeVM.onEvent(HomeVMEvent.DoHold)
@@ -39,12 +40,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
     private fun initViews() {
         val calendar: Calendar = Calendar.getInstance()
-        val currentDate = SimpleDateFormat("yyyy-MM-dd").format(calendar.time.time)
+        currentDate = SimpleDateFormat("yyyy-MM-dd").format(calendar.time.time)
         binding.apply {
             rvCurrencies.adapter = currencyAdapter
             swipeRefresh.setOnRefreshListener {
                 swipeRefresh.isRefreshing = false
-                homeVM.onEvent(HomeVMEvent.DoDateHold(currentDate.toString()))
+                homeVM.onEvent(HomeVMEvent.DoHold)
             }
             ivSearch.setOnClickListener {
                 val bundle = bundleOf(Constants.ALL_CURRENCY_AND_STATE_LIST to allCurrencyAndState)
@@ -86,6 +87,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                 }
 
                 if (state.localData.isNotEmpty()){
+                    if (currentDate != shared.currentDate){
+                        shared.currentDate = currentDate
+                        allCurrencies.forEach { item ->
+                           state.localData.forEach { local ->
+                               if (item.Ccy == local.Ccy){
+                                   homeVM.onEvent(HomeVMEvent.UpdateCurrencyToLocal(item))
+                               }
+                           }
+                        }
+                    }
                     allCurrencyAndState.clear()
                     allCurrencyAndState.addAll(getListCurrencyAndState(allCurrencies, state.localData))
                     currencyAdapter.setData(getListCurrencyAndState(allCurrencies, state.localData))

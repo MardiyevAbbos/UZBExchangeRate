@@ -1,21 +1,27 @@
 package com.example.uzbexchangerate
 
-import android.content.Context
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.inputmethod.InputMethodManager
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI.setupWithNavController
+import com.dylanc.longan.context
 import com.example.uzbexchangerate.databinding.ActivityMainBinding
+import com.example.uzbexchangerate.utils.Constants.PREF_APP_THEME_MODE
+import com.example.uzbexchangerate.utils.SharedPreferencesHelper
 import com.example.uzbexchangerate.utils.extensions.gone
 import com.example.uzbexchangerate.utils.extensions.visible
+import com.example.uzbexchangerate.utils.setChangeAppTheme
 import dagger.hilt.android.AndroidEntryPoint
+import java.text.SimpleDateFormat
+import java.util.*
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceChangeListener {
 
+    private val preferences by lazy { SharedPreferencesHelper(context = context) }
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
 
@@ -24,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setChangeAppTheme(preferences)
         initViews()
     }
 
@@ -40,7 +47,19 @@ class MainActivity : AppCompatActivity() {
                 else -> binding.bottomNavigationView.gone()
             }
         }
+    }
 
+    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
+        when(key){
+            PREF_APP_THEME_MODE -> {
+                setChangeAppTheme(preferences)
+            }
+        }
+    }
+
+    override fun onStop() {
+        preferences.preferences.unregisterOnSharedPreferenceChangeListener(this)
+        super.onStop()
     }
 
 }

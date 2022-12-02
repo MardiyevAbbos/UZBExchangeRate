@@ -34,8 +34,9 @@
                     android:layout_weight="1"
                     android:text="@string/str_currencies"
                     android:textColor="@color/d_black_100"
-                    android:textSize="@dimen/text_size_20"
-                    android:textStyle="bold" />
+                    android:textSize="@dimen/text_size_18"
+                    android:textAppearance="@style/mediumStyle"
+                    android:layout_marginStart="@dimen/margin_padding_4" />
 
                 <ImageView
                     android:id="@+id/iv_search"

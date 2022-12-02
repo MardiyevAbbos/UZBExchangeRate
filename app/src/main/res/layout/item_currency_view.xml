@@ -19,6 +19,7 @@
             android:layout_marginStart="@dimen/margin_padding_4"
             android:layout_marginTop="@dimen/margin_padding_2"
             android:text="US Dollar"
+            android:textAppearance="@style/mediumStyle"
             android:textColor="@color/d_black_100"
             android:textSize="@dimen/text_size_16"
             app:layout_constraintStart_toStartOf="parent"
@@ -38,6 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/str_one_amount"
+                android:textAppearance="@style/mediumStyle"
                 android:textColor="@color/d_black_100"
                 android:textSize="@dimen/text_size_14" />
 
@@ -46,6 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="USD"
+                android:textAppearance="@style/mediumStyle"
                 android:textColor="@color/d_black_100"
                 android:textSize="@dimen/text_size_14" />
 
@@ -53,6 +56,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/str_equality"
+                android:textAppearance="@style/mediumStyle"
                 android:textColor="@color/d_black_100"
                 android:textSize="@dimen/text_size_14" />
 
@@ -60,6 +64,7 @@
                 android:id="@+id/tv_currency_amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textAppearance="@style/mediumStyle"
                 android:text="11235,03"
                 android:textColor="@color/d_black_100"
                 android:textSize="@dimen/text_size_14" />
@@ -68,6 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/str_uzs"
+                android:textAppearance="@style/mediumStyle"
                 android:textColor="@color/d_black_100"
                 android:textSize="@dimen/text_size_14" />
 
@@ -88,6 +94,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/str_updated"
+                android:textAppearance="@style/mediumStyle"
                 android:textColor="@color/d_black_50"
                 android:textSize="@dimen/text_size_14" />
 
@@ -96,6 +103,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="06.04.2022"
+                android:textAppearance="@style/mediumStyle"
                 android:textColor="@color/d_black_50"
                 android:textSize="@dimen/text_size_14" />
 
@@ -136,6 +144,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="-23.43"
+                android:textAppearance="@style/mediumStyle"
                 android:textColor="@color/s_red_100"
                 android:textSize="@dimen/text_size_12" />
 
@@ -144,6 +153,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="-23.43"
+                android:textAppearance="@style/mediumStyle"
                 android:visibility="invisible"
                 android:textColor="@color/s_green_100"
                 android:textSize="@dimen/text_size_12" />
