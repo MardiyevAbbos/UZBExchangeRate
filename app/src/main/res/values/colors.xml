@@ -21,6 +21,7 @@
     <!-- New Style Color Palette -->
     <!-- Dynamic Colors -->
     <color name="d_black_100">#313131</color>
+    <color name="d_black_80">#CC313131</color>
     <color name="d_black_50">#80313131</color>
     <color name="d_gray_100">#899499</color>
     <color name="d_gray_20">#33899499</color>

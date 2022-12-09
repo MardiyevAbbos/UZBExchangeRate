@@ -3,6 +3,7 @@ package com.example.uzbexchangerate.utils.extensions
 import android.content.Context
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.TextView
 
 
 fun View.gone(): View{
@@ -31,3 +32,6 @@ fun View.showKeyboard(delayMillis: Long = 500) {
         }, delayMillis)
     }
 }
+
+fun TextView.setRightDrawable(drawable: Int) =
+    this.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,drawable,0)

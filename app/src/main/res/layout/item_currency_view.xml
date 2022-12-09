@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="86dp">
+    android:layout_height="94dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ll_main"
@@ -16,22 +16,23 @@
             android:id="@+id/tv_currency_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_padding_4"
+            android:layout_marginStart="@dimen/margin_padding_8"
             android:layout_marginTop="@dimen/margin_padding_2"
             android:text="US Dollar"
             android:textAppearance="@style/mediumStyle"
-            android:textColor="@color/d_black_100"
-            android:textSize="@dimen/text_size_16"
+            android:textColor="@color/d_black_80"
+            android:textSize="@dimen/text_size_18"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_padding_4"
+            android:layout_marginStart="@dimen/margin_padding_8"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:orientation="horizontal"
+            android:layout_marginTop="@dimen/margin_padding_2"
             android:gravity="center_vertical"
             app:layout_constraintTop_toTopOf="parent" >
 
@@ -41,7 +42,7 @@
                 android:text="@string/str_one_amount"
                 android:textAppearance="@style/mediumStyle"
                 android:textColor="@color/d_black_100"
-                android:textSize="@dimen/text_size_14" />
+                android:textSize="@dimen/text_size_16" />
 
             <TextView
                 android:id="@+id/tv_currency_ccy"
@@ -50,7 +51,7 @@
                 android:text="USD"
                 android:textAppearance="@style/mediumStyle"
                 android:textColor="@color/d_black_100"
-                android:textSize="@dimen/text_size_14" />
+                android:textSize="@dimen/text_size_16" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -58,7 +59,7 @@
                 android:text="@string/str_equality"
                 android:textAppearance="@style/mediumStyle"
                 android:textColor="@color/d_black_100"
-                android:textSize="@dimen/text_size_14" />
+                android:textSize="@dimen/text_size_16" />
 
             <TextView
                 android:id="@+id/tv_currency_amount"
@@ -67,7 +68,7 @@
                 android:textAppearance="@style/mediumStyle"
                 android:text="11235,03"
                 android:textColor="@color/d_black_100"
-                android:textSize="@dimen/text_size_14" />
+                android:textSize="@dimen/text_size_16" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -75,7 +76,7 @@
                 android:text="@string/str_uzs"
                 android:textAppearance="@style/mediumStyle"
                 android:textColor="@color/d_black_100"
-                android:textSize="@dimen/text_size_14" />
+                android:textSize="@dimen/text_size_16" />
 
         </LinearLayout>
 
@@ -83,8 +84,8 @@
             android:id="@+id/ll_currency_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_padding_4"
-            android:layout_marginBottom="@dimen/margin_padding_4"
+            android:layout_marginStart="@dimen/margin_padding_8"
+            android:layout_marginBottom="@dimen/margin_padding_6"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"

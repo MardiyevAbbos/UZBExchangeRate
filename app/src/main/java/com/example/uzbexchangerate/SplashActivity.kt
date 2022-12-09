@@ -30,12 +30,12 @@ class SplashActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setChangeAppTheme(preferences)
+        preferences.setLanguage(preferences.getLanguage()!!, context, true)
 
         window?.setFlags(
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         )
-
         CoroutineScope(Dispatchers.Main).launch {
             delay(1500)
             startActivity(Intent(this@SplashActivity, MainActivity::class.java))

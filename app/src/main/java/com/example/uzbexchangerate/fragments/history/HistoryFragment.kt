@@ -18,7 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class HistoryFragment : BaseFragment<FragmentHistoryBinding>(FragmentHistoryBinding::inflate) {
 
     private val historyVM: HistoryVM by activityViewModels()
-    private val currencyAdapter by lazy { HistoryAdapter() }
+    private val currencyAdapter by lazy { HistoryAdapter(shared) }
     private val deleteDialog by lazy { DeleteCurrencyConfirmDialog(requireContext(), getString(R.string.str_do_you_want_to____)) }
 
     override fun onViewCreate() {

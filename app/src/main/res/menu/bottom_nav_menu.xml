@@ -6,7 +6,7 @@
         android:title="@string/str_main"/>
     <item
         android:id="@+id/historyFragment"
-        android:icon="@drawable/ic_history"
+        android:icon="@drawable/ic_saved"
         android:title="@string/str_history"/>
     <item
         android:id="@+id/settingsFragment"

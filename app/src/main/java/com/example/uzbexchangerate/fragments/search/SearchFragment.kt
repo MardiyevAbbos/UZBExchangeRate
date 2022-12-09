@@ -21,7 +21,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
     private val currencyList: List<CurrencyAndState>
         get() = arguments?.get(Constants.ALL_CURRENCY_AND_STATE_LIST) as List<CurrencyAndState>
 
-    private val searchAdapter by lazy { SearchAdapter() }
+    private val searchAdapter by lazy { SearchAdapter(shared) }
 
     override fun onViewCreate() {
         searchAdapter.setData(currencyList)
@@ -41,6 +41,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
         binding.searchText.showKeyboard()
         binding.clearIcon.setOnClickListener {
             binding.searchText.setText("")
+            navController.popBackStack()
         }
 
         searchAdapter.setItemClickListener { currency ->

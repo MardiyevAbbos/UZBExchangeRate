@@ -9,11 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.uzbexchangerate.R
 import com.example.uzbexchangerate.databinding.ItemCurrencyViewBinding
 import com.example.uzbexchangerate.models.ExchangeRate
+import com.example.uzbexchangerate.utils.SharedPreferencesHelper
 import com.example.uzbexchangerate.utils.extensions.invisible
 import com.example.uzbexchangerate.utils.extensions.visible
 import java.lang.ref.WeakReference
 
-class HistoryAdapter : ListAdapter<ExchangeRate, HistoryAdapter.VH>(ITEM_DIFF) {
+class HistoryAdapter(val shared: SharedPreferencesHelper) : ListAdapter<ExchangeRate, HistoryAdapter.VH>(ITEM_DIFF) {
 
     private var exchangeIconClick: ((ExchangeRate) -> Unit)? = null
     fun setExchangeIconClickListener(f: (item: ExchangeRate) -> Unit) {
@@ -30,7 +31,11 @@ class HistoryAdapter : ListAdapter<ExchangeRate, HistoryAdapter.VH>(ITEM_DIFF) {
         private val view = WeakReference(binding.root)
         @SuppressLint("ResourceAsColor", "SetTextI18n")
         fun bind(item: ExchangeRate) {
-            binding.tvCurrencyName.text = item.CcyNm_EN
+            binding.tvCurrencyName.text = when(shared.getLanguage()){
+                "uz" -> { item.CcyNm_UZ }
+                "en" -> { item.CcyNm_EN }
+                else -> { item.CcyNm_RU }
+            }
             binding.tvCurrencyCcy.text = " ${item.Ccy} "
             binding.tvCurrencyAmount.text = " ${item.Rate} "
             binding.tvCurrencyDate.text = " ${item.Date}"

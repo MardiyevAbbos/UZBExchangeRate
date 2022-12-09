@@ -12,11 +12,12 @@ import com.example.uzbexchangerate.R
 import com.example.uzbexchangerate.databinding.ItemCurrencyViewBinding
 import com.example.uzbexchangerate.models.CurrencyAndState
 import com.example.uzbexchangerate.models.ExchangeRate
+import com.example.uzbexchangerate.utils.SharedPreferencesHelper
 import com.example.uzbexchangerate.utils.extensions.invisible
 import com.example.uzbexchangerate.utils.extensions.visible
 import java.lang.ref.WeakReference
 
-class SearchAdapter : ListAdapter<CurrencyAndState, SearchAdapter.VH>(ITEM_DIFF), Filterable {
+class SearchAdapter(val shared: SharedPreferencesHelper) : ListAdapter<CurrencyAndState, SearchAdapter.VH>(ITEM_DIFF), Filterable {
 
     private var items: List<CurrencyAndState> = ArrayList()
     private var itemClick: ((ExchangeRate) -> Unit)? = null
@@ -29,7 +30,11 @@ class SearchAdapter : ListAdapter<CurrencyAndState, SearchAdapter.VH>(ITEM_DIFF)
         private val view = WeakReference(binding.root)
         @SuppressLint("SetTextI18n")
         fun bind(item: CurrencyAndState) {
-            binding.tvCurrencyName.text = item.currency.CcyNm_EN
+            binding.tvCurrencyName.text = when(shared.getLanguage()){
+                "uz" -> { item.currency.CcyNm_UZ }
+                "en" -> { item.currency.CcyNm_EN }
+                else -> { item.currency.CcyNm_RU }
+            }
             binding.tvCurrencyCcy.text = " ${item.currency.Ccy} "
             binding.tvCurrencyAmount.text = " ${item.currency.Rate} "
             binding.tvCurrencyDate.text = " ${item.currency.Date}"

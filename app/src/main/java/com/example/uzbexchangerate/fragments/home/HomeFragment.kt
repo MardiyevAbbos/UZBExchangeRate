@@ -2,7 +2,6 @@ package com.example.uzbexchangerate.fragments.home
 
 import android.util.Log
 import androidx.core.os.bundleOf
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.uzbexchangerate.R
 import com.example.uzbexchangerate.adapter.CurrenciesAdapter
@@ -25,7 +24,7 @@ import kotlin.collections.ArrayList
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
 
     private val homeVM: HomeVM by activityViewModels()
-    private val currencyAdapter by lazy { CurrenciesAdapter() }
+    private val currencyAdapter by lazy { CurrenciesAdapter(shared) }
     private val loader by lazy { LoaderDialog(requireContext()) }
     private var allCurrencies: ArrayList<ExchangeRate> = ArrayList()
     private var allCurrencyAndState: ArrayList<CurrencyAndState> = ArrayList()
@@ -87,15 +86,17 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                 }
 
                 if (state.localData.isNotEmpty()){
-                    if (currentDate != shared.currentDate){
-                        shared.currentDate = currentDate
+                    if (currentDate.subSequence(8,10) != shared.currentDate.toString().subSequence(0,2)
+                        || currentDate.subSequence(5,7) != shared.currentDate.toString().subSequence(3,5)){
                         allCurrencies.forEach { item ->
                            state.localData.forEach { local ->
                                if (item.Ccy == local.Ccy){
-                                   homeVM.onEvent(HomeVMEvent.UpdateCurrencyToLocal(item))
+                                   //homeVM.onEvent(HomeVMEvent.UpdateCurrencyToLocal(item))
+                                   homeVM.onEvent(HomeVMEvent.UpdateFieldsCurrencyToLocal(item.Rate, item.Diff, item.Date, item.Ccy))
                                }
                            }
                         }
+                        shared.currentDate = currentDate
                     }
                     allCurrencyAndState.clear()
                     allCurrencyAndState.addAll(getListCurrencyAndState(allCurrencies, state.localData))
