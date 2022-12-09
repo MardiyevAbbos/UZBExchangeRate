@@ -16,6 +16,7 @@
         android:src="@drawable/splash_background" />
 
     <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_animation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

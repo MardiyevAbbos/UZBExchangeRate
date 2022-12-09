@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">UZBExchangeRate</string>
+
+    <string name="str_main">Главный</string>
+    <string name="str_history">История</string>
+    <string name="str_settings">Настройки</string>
+    <string name="str_currencies">Валюты</string>
+    <string name="str_exchange">Обмен</string>
+    <string name="str_uzs">UZS</string>
+    <string name="str_updated">Обновлено:</string>
+    <string name="check_your_connection">Не удалось связаться с сервером. Проверьте подключение к Интернету.</string>
+    <string name="something_is_wrong"> Что-то пошло не так. Пожалуйста, повторите попытку позже!</string>
+    <string name="select">Выбирать</string>
+    <string name="str_uzbek_soum">Узбекский сум</string>
+    <string name="str_yes">Да</string>
+    <string name="str_no">Нет</string>
+    <string name="str_do_you_want_to_...">Вы хотите удалить этот элемент?</string>
+    <string name="str_one_amount">1</string>
+    <string name="str_equality"> = </string>
+    <string name="str_search">Поиск</string>
+    <string name="str_zero">0</string>
+    <string name="str_max_lines_24">Максимальное количество строк: 24!</string>
+    <string name="str_light_mode">Легкий режим</string>
+    <string name="str_dark_mode">Темный режим</string>
+    <string name="str_system_theme">Системная тема</string>
+    <string name="str_appLanguage">Язык приложения</string>
+    <string name="str_app_language">Русский</string>
+    <string name="str_share">Делиться</string>
+    <string name="str_about_program">О программе</string>
+    <string name="str_cancel">Отмена</string>
+    <string name="str_russian">Русский</string>
+    <string name="str_english">English</string>
+    <string name="str_o_zbekcha">O`zbekcha</string>
+    <string name="str_apply_for">Применить</string>
+</resources>

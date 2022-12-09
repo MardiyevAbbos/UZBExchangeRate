@@ -64,6 +64,16 @@ class HomeVM @Inject constructor(
                     mainRepository.deleteCurrencyByIdLocal(event.ccy)
                 }
             }
+            is HomeVMEvent.UpdateCurrencyToLocal -> {
+                viewModelScope.launch {
+                    mainRepository.updateCurrencyLocal(event.currency)
+                }
+            }
+            is HomeVMEvent.UpdateFieldsCurrencyToLocal -> {
+                viewModelScope.launch {
+                    mainRepository.updateFieldsCurrencyLocal(event.rate, event.diff, event.date, event.ccy)
+                }
+            }
         }
         Log.d("TAG@@@ info", "onEvent: $event")
     }

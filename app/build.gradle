@@ -86,5 +86,7 @@ dependencies {
     // Longan - collection of Kotlin utils
     implementation 'com.github.DylanCaiCoding.Longan:longan:1.1.1'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.1'
+    // Secured Preferences
+    implementation "androidx.security:security-crypto:1.1.0-alpha04"
 
 }

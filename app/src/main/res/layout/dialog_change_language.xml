@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_bg"
+    android:orientation="vertical"
+    tools:context=".dialogs.ChangeLanguageDialog">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_padding_16"
+            android:text="@string/str_appLanguage"
+            android:textAppearance="@style/mediumStyle"
+            android:textSize="@dimen/text_size_16" />
+
+        <ImageView
+            android:id="@+id/exitBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center|end"
+            android:contentDescription="@string/str_cancel"
+            android:paddingHorizontal="@dimen/margin_padding_16"
+            android:src="@drawable/ic_clear"
+            app:tint="@color/d_black_100" />
+
+    </FrameLayout>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_padding_16"
+        android:background="@drawable/linear_bc_code"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/uzbBtn"
+            android:text="@string/str_o_zbekcha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/checkbox_circle_selected"
+            android:gravity="start|center"
+            android:padding="@dimen/margin_padding_16"
+            android:textAppearance="@style/M14"
+            android:textColor="@color/d_black_100" />
+
+        <include layout="@layout/horizontal_divider" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/englishBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/checkbox_circle_not_selected"
+            android:gravity="start|center"
+            android:padding="@dimen/margin_padding_16"
+            android:text="@string/str_english"
+            android:textAppearance="@style/M14"
+            android:textColor="@color/d_black_100" />
+
+        <include layout="@layout/horizontal_divider" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/russianBtn"
+            android:text="@string/str_russian"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/checkbox_circle_not_selected"
+            android:gravity="start|center"
+            android:padding="@dimen/margin_padding_16"
+            android:textAppearance="@style/M14"
+            android:textColor="@color/d_black_100" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/applyBtn"
+        style="@style/Button_Green"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:layout_margin="@dimen/margin_padding_16"
+        android:text="@string/str_apply_for" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
