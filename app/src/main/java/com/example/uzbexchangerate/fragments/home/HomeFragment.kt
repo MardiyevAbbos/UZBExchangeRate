@@ -1,6 +1,5 @@
 package com.example.uzbexchangerate.fragments.home
 
-import android.util.Log
 import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
 import com.example.uzbexchangerate.R

@@ -53,7 +53,7 @@ class HistoryAdapter(val shared: SharedPreferencesHelper) : ListAdapter<Exchange
                 binding.tvDiffAmountGreen.invisible()
             }
 
-            binding.ivExchange.setOnClickListener { exchangeIconClick?.invoke(item) }
+            binding.root.setOnClickListener { exchangeIconClick?.invoke(item) }
 
             view.get()?.let {
                 it.setOnClickListener {

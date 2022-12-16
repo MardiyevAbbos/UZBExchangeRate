@@ -1,12 +1,12 @@
 package com.example.uzbexchangerate.fragments.settings
 
-import android.app.AlertDialog
+import android.content.Intent
 import com.example.uzbexchangerate.R
 import com.example.uzbexchangerate.databinding.FragmentSettingsBinding
 import com.example.uzbexchangerate.dialogs.ChangeLanguageDialog
 import com.example.uzbexchangerate.fragments.BaseFragment
-import com.example.uzbexchangerate.utils.SharedPreferencesHelper
 import com.example.uzbexchangerate.utils.ThemeModeState
+import com.example.uzbexchangerate.utils.extensions.snackBar
 import com.example.uzbexchangerate.utils.setChangeAppTheme
 
 class SettingsFragment : BaseFragment<FragmentSettingsBinding>(FragmentSettingsBinding::inflate) {
@@ -52,6 +52,19 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>(FragmentSettingsB
 
             languageBtn.setOnClickListener {
                 languageDialog.show()
+            }
+
+            shareProgram.setOnClickListener {
+                val sendIntent = Intent()
+                sendIntent.action = Intent.ACTION_SEND
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "https://drive.google.com/file/d/1Umr0l9aQyySFDtpKKxcRKTf2hk61aFop/view?usp=sharing")
+                sendIntent.type = "text/plain"
+                sendIntent.setPackage("org.telegram.messenger")
+                try {
+                    startActivity(sendIntent)
+                }catch (ex: android.content.ActivityNotFoundException){
+                    snackBar(binding.root, ex.toString())
+                }
             }
 
         }
