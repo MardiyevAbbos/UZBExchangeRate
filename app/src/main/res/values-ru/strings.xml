@@ -33,4 +33,6 @@
     <string name="str_english">English</string>
     <string name="str_o_zbekcha">O`zbekcha</string>
     <string name="str_apply_for">Применить</string>
+    <string name="no_internet_connection">Нет интернет соединения</string>
+    <string name="check_connection">Проверьте подключение</string>
 </resources>
