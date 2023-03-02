@@ -13,14 +13,11 @@ import com.example.uzbexchangerate.dialogs.NoConnectionDialog
 import com.example.uzbexchangerate.utils.Constants.PREF_APP_THEME_MODE
 import com.example.uzbexchangerate.utils.NetworkConnectionListener
 import com.example.uzbexchangerate.utils.SharedPreferencesHelper
-import com.example.uzbexchangerate.utils.extensions.collectLA
 import com.example.uzbexchangerate.utils.extensions.collectLatestLA
 import com.example.uzbexchangerate.utils.extensions.gone
 import com.example.uzbexchangerate.utils.extensions.visible
 import com.example.uzbexchangerate.utils.setChangeAppTheme
 import dagger.hilt.android.AndroidEntryPoint
-import java.text.SimpleDateFormat
-import java.util.*
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceChangeListener {

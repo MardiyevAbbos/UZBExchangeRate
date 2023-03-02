@@ -4,7 +4,6 @@ import android.text.Editable
 import android.text.TextWatcher
 import androidx.fragment.app.activityViewModels
 import com.dylanc.longan.safeArguments
-import com.example.uzbexchangerate.BuildConfig
 import com.example.uzbexchangerate.R
 import com.example.uzbexchangerate.databinding.FragmentExchangeBinding
 import com.example.uzbexchangerate.dialogs.CalendarDialog
@@ -15,8 +14,6 @@ import com.example.uzbexchangerate.utils.Constants.CURRENCY
 import com.example.uzbexchangerate.utils.MultiplyAndDivideLargeNumberAsString
 import com.example.uzbexchangerate.utils.extensions.*
 import dagger.hilt.android.AndroidEntryPoint
-import java.text.SimpleDateFormat
-import java.util.*
 
 @AndroidEntryPoint
 class ExchangeFragment : BaseFragment<FragmentExchangeBinding>(FragmentExchangeBinding::inflate) {
