@@ -2,7 +2,6 @@ package com.example.uzbexchangerate.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.Json
 import java.io.Serializable
 
@@ -32,4 +31,4 @@ data class ExchangeRate(
     val Rate: String,
     @Json(name = "id")
     val id: Int
-) : java.io.Serializable
+) : Serializable
